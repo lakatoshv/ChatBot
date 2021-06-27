@@ -4,8 +4,14 @@ using Xunit;
 
 namespace ChatBot.UnitTests.AutomatedMessagingTests.AutomatedMessagingSystemTests
 {
+    /// <summary>
+    /// Publish should test.
+    /// </summary>
     public class PublishShouldTest
     {
+        /// <summary>
+        /// Automated the message to managed message.
+        /// </summary>
         [Fact]
         public void AutomatedMessageToManagedMessage()
         {
