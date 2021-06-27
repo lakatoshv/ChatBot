@@ -38,5 +38,22 @@ namespace ChatBot.UnitTests.AutomatedMessagingTests.IntervalTriggeredMessagesTes
 
             Assert.False(intervalTriggeredMessage.IsItTimeToDisplay(_currentTime));
         }
+
+        /// <summary>
+        /// Returns the true given time equal to delay in minutes.
+        /// </summary>
+        [Fact]
+        public void ReturnTrue_GivenTimeEqualToDelayInMinutes()
+        {
+            var intervalTriggeredMessage = new IntervalTriggeredMessage()
+            {
+                DelayInMinutes = 1,
+                Message = "Welcome! If you are enjoying the content, please follow this channel!",
+            };
+
+            intervalTriggeredMessage.Initialize(_currentTime);
+
+            Assert.True(intervalTriggeredMessage.IsItTimeToDisplay(_currentTime.AddMinutes(intervalTriggeredMessage.DelayInMinutes)));
+        }
     }
 }
