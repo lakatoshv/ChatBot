@@ -3,3 +3,10 @@
 ################################################################################
 
 /ChatBot/.vs/ChatBot
+/ChatBot/ChatBot/obj/Debug/net5.0
+/ChatBot/Consoles/ChatBot.Bot/bin/Debug/net5.0
+/ChatBot/Consoles/ChatBot.Bot/obj
+/ChatBot/Tests/ChatBot.UnitTests/bin/Debug/net5.0
+/ChatBot/Tests/ChatBot.UnitTests/obj
+/Shared/Extentions/ChatBot.Core/bin/Debug/netstandard2.1
+/Shared/Extentions/ChatBot.Core/obj
