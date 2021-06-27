@@ -55,5 +55,23 @@ namespace ChatBot.UnitTests.AutomatedMessagingTests.IntervalTriggeredMessagesTes
 
             Assert.True(intervalTriggeredMessage.IsItTimeToDisplay(_currentTime.AddMinutes(intervalTriggeredMessage.DelayInMinutes)));
         }
+
+        /// <summary>
+        /// Returns the false immediately after sending message.
+        /// </summary>
+        [Fact]
+        public void ReturnFalse_ImmediatelyAfterSendingMessage()
+        {
+            var intervalTriggeredMessage = new IntervalTriggeredMessage()
+            {
+                DelayInMinutes = 1,
+                Message = "Welcome! If you are enjoying the content, please follow this channel!",
+            };
+
+            intervalTriggeredMessage.Initialize(_currentTime.AddMinutes(-1));
+            intervalTriggeredMessage.GetMessage(_currentTime);
+
+            Assert.False(intervalTriggeredMessage.IsItTimeToDisplay(DateTime.Now));
+        }
     }
 }
