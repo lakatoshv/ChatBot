@@ -34,5 +34,21 @@ namespace ChatBot.UnitTests.AutomatedMessagingTests.AutomatedMessagingSystemTest
 
             Assert.Single(automatedMessagingSystem.QueuedMessages);
         }
+
+        /// <summary>
+        /// Adds the one messages to queue given many messages given one ready automated messages.
+        /// </summary>
+        [Fact]
+        public void AddOneMessagesToQueue_GivenManyMessages_GivenOneReadyAutomatedMessages()
+        {
+            var automatedMessagingSystem = new AutomatedMessagingSystem();
+            automatedMessagingSystem.Publish(new AlwaysReadyMessage());
+            automatedMessagingSystem.Publish(new NeverReadyMessage());
+            automatedMessagingSystem.Publish(new NeverReadyMessage());
+            
+            automatedMessagingSystem.CheckMessages(DateTime.Now);
+
+            Assert.Single(automatedMessagingSystem.QueuedMessages);
+        }
     }
 }
