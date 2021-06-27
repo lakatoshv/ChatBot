@@ -37,5 +37,17 @@ namespace ChatBot.Core.AutomatedMessaging
             automatedMessage.Initialize(DateTime.Now);
             ManagedAutomatedMessages.Add(automatedMessage);
         }
+
+        /// <summary>
+        /// Checks the messages.
+        /// </summary>
+        /// <param name="currentTime">The current time.</param>
+        public void CheckMessages(DateTime currentTime)
+        {
+            var messages = ManagedAutomatedMessages.Where(x => x.IsItTimeToDisplay(currentTime))
+                .Select(x => x.GetMessage(currentTime)).ToList();
+
+            QueuedMessages.AddRange(messages);
+        }
     }
 }
